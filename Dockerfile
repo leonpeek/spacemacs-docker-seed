@@ -6,7 +6,7 @@ ENV UID="1000"
 
 # Ubuntu Xenial
 RUN apt-get update \
-    && apt-get install dstat build-essential curl \
+    && apt-get install dstat build-essential curl x11-xserver-utils \
     libpng-dev zlib1g-dev libpoppler-glib-dev libpoppler-private-dev imagemagick \
     && rm -rf /var/lib/apt/lists/*
 
