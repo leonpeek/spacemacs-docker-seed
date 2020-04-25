@@ -13,6 +13,9 @@ RUN apt-get update \
 COPY .spacemacs "${UHOME}/.spacemacs"
 COPY private "${UHOME}/.emacs.d/private"
 
+RUN cd "${UHOME}/.emacs.d/private/local" && \
+    git clone https://github.com/Potpourri/spacemacs-emms.git
+
 # Install layers dependencies and initialize the user
 RUN install-deps
 
