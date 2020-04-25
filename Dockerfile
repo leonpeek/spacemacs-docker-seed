@@ -6,8 +6,9 @@ ENV UID="1000"
 
 # Ubuntu Xenial
 RUN apt-get update \
-    && apt-get install dstat build-essential curl \
-    libpng-dev zlib1g-dev libpoppler-glib-dev libpoppler-private-dev imagemagick \
+    && apt-get upgrade -y \
+    && apt-get install openjdk-8-jdk openjdk-8-jre \
+    && apt-get install dstat build-essential curl x11-xserver-utils libpng-dev zlib1g-dev libpoppler-glib-dev libpoppler-private-dev imagemagick texlive-latex-extra dvipng \
     && rm -rf /var/lib/apt/lists/*
 
 COPY .spacemacs "${UHOME}/.spacemacs"
@@ -15,6 +16,8 @@ COPY private "${UHOME}/.emacs.d/private"
 
 RUN cd "${UHOME}/.emacs.d/private/local" && \
     git clone https://github.com/Potpourri/spacemacs-emms.git
+
+VOLUME ${UHOME}
 
 # Install layers dependencies and initialize the user
 RUN install-deps
