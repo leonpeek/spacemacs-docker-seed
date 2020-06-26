@@ -1,0 +1,17 @@
+# -*- mode: snippet -*-
+#name : quiz-tanslate
+#key : <tr
+#contributor : spacemacser
+# --
+****** Quiz - Created on ${1:`(current-time-string)`} :TRANSLATION:
+       :PROPERTIES:
+       :ANKI_DECK: Translation
+       :ANKI_NOTE_TYPE: Basic
+       :END:
+******* Front
+ #+name: $1
+ #+begin_src translate
+ 
+ #+end_src
+******* Back
+ #+RESULTS: $1
