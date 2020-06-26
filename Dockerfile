@@ -12,8 +12,8 @@ RUN apt-get update \
     && rm -rf /var/lib/apt/lists/*
 
 # Install anaconda
-RUN wget --no-check-certificate https://mirrors.tuna.tsinghua.edu.cn/anaconda/archive/Anaconda3-2020.02-Linux-x86_64.sh \
-    && bash Anaconda3-2020.02-Linux-x86_64.sh -b -u -p /home/work/anaconda3
+RUN curl -O https://mirrors.tuna.tsinghua.edu.cn/anaconda/archive/Anaconda3-2020.02-Linux-x86_64.sh \
+    && bash Anaconda3-2020.02-Linux-x86_64.sh -b -u -p /usr/local
 
 COPY .spacemacs "${UHOME}/.spacemacs"
 COPY private "${UHOME}/.emacs.d/private"
